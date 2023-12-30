@@ -42,14 +42,29 @@ public class TokenService implements ITokenService {
             if (!ROLES_WITH_PERMISSION.contains(role))
                 return false;
 
+            // 5. A claim Seed deve ser um número primo.
+            int seed = Integer.parseInt(jwtClaimsSet.getClaim("Seed").toString());
+            if (isPrime(seed) == false)
+                return false;
+
         } catch (Exception e) {
-            System.err.println(e);
             return false;
         }
 
-        // 5. A claim Seed deve ser um número primo.
         // 6. O tamanho máximo da claim Name é de 256 caracteres.
 
+        return true;
+    }
+
+    private Boolean isPrime(int numberToCheck) {
+        if (numberToCheck <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(numberToCheck); i++) {
+            if (numberToCheck % i == 0) {
+                return false;
+            }
+        }
         return true;
     }
 
