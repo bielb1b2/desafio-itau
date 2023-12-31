@@ -32,8 +32,9 @@ public class TokenService implements ITokenService {
             }
 
             // 3. A claim Name não pode ter carácter de números
+            // 6. O tamanho máximo da claim Name é de 256 caracteres.
             String name = jwtClaimsSet.getClaim("Name").toString();
-            if (name.matches(".*\\d.*"))
+            if (name.matches(".*\\d.*") || name.length() > 256)
                 return false;
 
             // 4. A claim Role deve conter apenas 1 dos três valores (Admin, Member e
@@ -50,8 +51,6 @@ public class TokenService implements ITokenService {
         } catch (Exception e) {
             return false;
         }
-
-        // 6. O tamanho máximo da claim Name é de 256 caracteres.
 
         return true;
     }
