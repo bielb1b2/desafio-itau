@@ -13,7 +13,7 @@ import com.nimbusds.jose.crypto.MACSigner;
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.SignedJWT;
 
-public class TokenTextFixture {
+public class TokenTestFixture {
 
     private static final String SECRET_KEY = "Hr9kJt26DhuKvWOpXPpfVDZWb1rHYFZuyctCHRjQpf33LWqgfQ1JQ1OMog/aM/0O";
 

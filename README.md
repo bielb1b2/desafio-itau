@@ -1,4 +1,4 @@
-# Descrição
+# Descrição do desafio
 
 Construa uma aplicação que exponha uma api web que recebe por parametros um JWT (string) e verifica se é valida conforme regras abaixo:
 
@@ -97,36 +97,40 @@ Abrindo o JWT, foi encontrado mais de 3 claims.
   "Name": "Valdir Aranha"
 }
 ```
-## Pontos que daremos maior atenção
 
-- Testes de unidade / integração
-- Abstração, acoplamento, extensibilidade e coesão
-- Design de API
-- SOLID
-- Documentação da solução no *README* 
-- Commits realizados durante a construção
+# Execução da Tarefa
 
-## Pontos que não iremos avaliar
 
-- docker file
-- scripts ci/cd
-- coleções do postman ou ferramentas para execução
-- expor a api em algum provedor de cloud (aws, azure...)
+### Premissas
 
-### Sobre a documentação
+Premissas adotadas para o desenvolvimento.
+1. **Simplicidade é a chave (KISS):** Optei por manter a abordagem simples, evitando complexidades desnecessárias. Isso não apenas facilita a compreensão do código, mas também simplifica a manutenção.
 
-Nesta etapa do processo seletivo queremos entender as decisões por trás do código, portanto é fundamental que o *README* tenha algumas informações referentes a sua solução.
+2. **Foco na tarefa em mãos:** Abordei a tarefa de maneira específica, evitando conjecturas sobre o negócio que podem não ser relevantes. Concentrei-me em resolver os desafios imediatos sem antecipar obstáculos futuros desconhecidos.
 
-Algumas dicas do que esperamos ver são:
+3. **Escolha do padrão MVC:**  Adotei o padrão Model-View-Controller (MVC) para proporcionar uma estrutura organizada ao projeto.
 
-- Instruções básicas de como executar o projeto;
-- Detalhes da descrição do metodo
-- Caso algo não esteja claro e você precisou assumir alguma premissa, quais foram e o que te motivou a tomar essas decisões.
+### Como foi feito
 
-## Como esperamos receber sua solução
+Foi desenvolvido um serviço através de uma interface, sendo um Model-View-Controller (MVC) padrão.
 
-Esta etapa é eliminatória, e por isso esperamos que o código reflita essa importância.
+-  Introduzi um serviço com toda a lógica de negócios encapsulada, enquanto o controlador é responsável por receber as mensagens, invocar o serviço e retornar a resposta.
 
-Se tiver algum imprevisto, dúvida ou problema, por favor entre em contato com a gente, estamos aqui para ajudar.
+### Tests
 
-Nos envie o *link de um repo público* com a sua solução
+- Os testes foram elaborados considerando o arquivo `TokenTests.java`, que foi expandido para abranger casos de teste mais abrangentes. Além disso, introduzi a classe `TokenTestFixture.java`, projetada para facilitar a geração de diferentes JWTs usando bibliotecas como Faker e Random para dados variados. Isso não só simplifica a criação de casos de teste, mas também enriquece a diversidade dos dados de entrada..
+
+Para executar os testes, utilize o seguinte comando:
+```bash
+
+mvn test
+
+```
+
+Testes executados.
+![Tests](/img/Tests-itau.png)
+
+### Coverage
+
+Executei o Jacoco para ter uma visualização do coverage de tests.
+![coverage](/img/Coverage-itau.png)

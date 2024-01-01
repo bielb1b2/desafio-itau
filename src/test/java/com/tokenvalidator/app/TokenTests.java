@@ -44,7 +44,7 @@ class TokenTests {
 	}
 
 	static Stream<Arguments> provideDataValidName() throws Exception {
-		TokenTextFixture tokenTextFixture = new TokenTextFixture();
+		TokenTestFixture tokenTextFixture = new TokenTestFixture();
 		List<String> validName = tokenTextFixture.validNameToken();
 		return Stream.iterate(0, i -> i + 1)
 				.limit(validName.size())
@@ -66,7 +66,7 @@ class TokenTests {
 	}
 
 	static Stream<Arguments> provideDataInvalidName() throws Exception {
-		TokenTextFixture tokenTextFixture = new TokenTextFixture();
+		TokenTestFixture tokenTextFixture = new TokenTestFixture();
 		List<String> invalidNames = tokenTextFixture.invalidNameToken();
 		return Stream.iterate(0, i -> i + 1)
 				.limit(invalidNames.size())
@@ -92,7 +92,7 @@ class TokenTests {
 	void TokenTestNameGreaterThan256() throws Exception {
 		// AAA
 		// Arrange
-		TokenTextFixture tokenTextFixture = new TokenTextFixture();
+		TokenTestFixture tokenTextFixture = new TokenTestFixture();
 		String invalidName = tokenTextFixture.generateNameGreaterThan256();
 		Token testToken = new Token(invalidName);
 
@@ -104,7 +104,7 @@ class TokenTests {
 	}
 
 	static Stream<Arguments> provideDataInvalidRole() throws Exception {
-		TokenTextFixture tokenTextFixture = new TokenTextFixture();
+		TokenTestFixture tokenTextFixture = new TokenTestFixture();
 		List<String> invalidRole = tokenTextFixture.invalidRoleToken();
 		return Stream.iterate(0, i -> i + 1)
 				.limit(invalidRole.size())
@@ -126,7 +126,7 @@ class TokenTests {
 	}
 
 	static Stream<Arguments> provideDataInvalidSeed() throws Exception {
-		TokenTextFixture tokenTextFixture = new TokenTextFixture();
+		TokenTestFixture tokenTextFixture = new TokenTestFixture();
 		List<String> invalidSeed = tokenTextFixture.invalidSeed();
 		return Stream.iterate(0, i -> i + 1)
 				.limit(invalidSeed.size())
